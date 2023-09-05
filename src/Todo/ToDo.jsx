@@ -2,17 +2,22 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ToDo() {
-   const [atividade, setAtividade ] = useState("");
+   const [nome, setNome ] = useState("");
+   const [marca, setMarca ] = useState("");
+   const [preco, setPreco ] = useState("");
    const [lista, setLista ] = useState([]);
    const [id,setId] = useState(1);
     const salvar =(e) =>{
         e.preventDefault();
         setLista([...lista, {
-                atividade: atividade,
+                nome:nome, marca:marca, preço:preco,
                 id: id
         }]);
         setId(id + 1);
-        setAtividade("");
+        setNome("");
+        setMarca("");
+        setPreco("");
+        
     };
 
     return (
@@ -20,13 +25,20 @@ export default function ToDo() {
             <Link to="/">home</Link>
             <h1>Lista de Atividades</h1>    
             <form onSubmit={salvar}>
-            <input value={atividade} type="text"
-            onChange={(e)=>{ setAtividade(e.target.value)}}/>
+            <input value={nome} type="text"
+            onChange={(e)=>{ setNome(e.target.value)}}/>
+            <input value={marca} type="text"
+            onChange={(e)=>{ setMarca(e.target.value)}}/>
+            <input value={preco} type="text"
+            onChange={(e)=>{ setPreco(e.target.value)}}/>
             <button>ADD</button>   
             </form>      
-            {lista.map((ativ)=>
+            {lista.map(()=>
             <div key= {ativ.id}>
-                <p>{ativ.atividade}</p>
+                <p>{ativ.nome}</p>
+                <p>{ativ.marca}</p>
+                <p>{ativ.preco}</p>
+
             </div>
             )} 
         </div>
