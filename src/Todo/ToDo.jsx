@@ -23,21 +23,23 @@ export default function ToDo() {
     return (
         <div>
             <Link to="/">home</Link>
-            <h1>Lista de Atividades</h1>    
+            <h1>Lista de Produtos</h1>    
             <form onSubmit={salvar}>
-            <input value={nome} type="text"
+    
+           <input value={nome} type="text"
             onChange={(e)=>{ setNome(e.target.value)}}/>
+            &
             <input value={marca} type="text"
             onChange={(e)=>{ setMarca(e.target.value)}}/>
-            <input value={preco} type="text"
+           <input value={preco} type="text"
             onChange={(e)=>{ setPreco(e.target.value)}}/>
-            <button>ADD</button>   
+            <button type="button" class="btn btn-ligth">ADICIONAR</button>  
             </form>      
-            {lista.map(()=>
+            {lista.map((ativ)=>
             <div key= {ativ.id}>
-                <p>{ativ.nome}</p>
-                <p>{ativ.marca}</p>
-                <p>{ativ.preco}</p>
+                <p>Nome: {ativ.nome}</p>
+                <p>Marca: {ativ.marca}</p>
+                <p>Preço: R${ativ.preco}</p>
 
             </div>
             )} 
