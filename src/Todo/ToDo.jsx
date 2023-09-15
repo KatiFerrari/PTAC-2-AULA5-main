@@ -45,7 +45,7 @@ export default function ToDo() {
            <input value={preco} type="text"
             onChange={(e)=>{ setPreco(e.target.value)}}/>
             
-            <p>Preço:</p>
+            <p>Imagem:</p>
            &emsp;
            <input value={imagem} type="text"
             onChange={(e)=>{ setImagem(e.target.value)}}/>
@@ -60,7 +60,7 @@ export default function ToDo() {
                 <p>Marca: {ativ.marca}</p>
                 <p>Preço: R${ativ.preco}</p>
                 <p>Imagem:</p>
-                <img src= (ativ.imagem)/>
+                <img src={ativ.imagem} alt="" />
 
             </div>
             )} 
